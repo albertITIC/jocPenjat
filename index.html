@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joc del penjat</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    
+    <header class="header">
+        <!-- Crear input -->
+        <input id="paraulaSecreta" placeholder="Introdueix una paraula: " type="password">
+        <!-- Botons -->
+        <button id="mostrar" onclick="mostrarParaula()"> Mostrar </button>
+        <button id="comencarPartida" onclick="comencaPartida()"> Comença partida </button>
+    </header>
+
+    <main class="main">
+        <!-- Títol en gran -->
+        <div class="main-titol">
+            <h1>
+                Començar partida <!-- Més endavant ha de canviar per _ _ _ _ _ -->
+            </h1>
+        </div>
+
+        <div class="main-contingut">
+            <!-- Sistema de puntuació -->
+             <div class="sistema-puntuacio-main">
+                <p> JUGADOR 1</p>
+             </div>
+            <!-- Image que anirà canviant conforme vagi fallant -->
+            <div class="imatge-contingut">
+                <img src="/img/penjat_0.jpg" alt="imatge joc del penjat">
+            </div>
+        
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <!-- Botons amb totes les lletres del abecedari -->
+
+
+    </footer>
+
+    <!-- Per importar el fitxer -->
+    <script src="/jocCodi.js/code.js"></script>
+
+</body>
+</html>

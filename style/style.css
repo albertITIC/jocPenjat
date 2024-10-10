@@ -1,0 +1,38 @@
+
+.header {
+    display: flex;
+    justify-content: end;
+    padding: 3%;
+    gap: 5px;
+}
+
+#comencarPartida{
+    background-color: lightgreen;
+    border-radius: 3px;
+}
+
+.main-titol{
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+    border-radius: 15px;
+}
+
+/* div que controla la part de la puntuació + la imatge */
+.main-contingut{
+    padding-top: 2%;
+    background-color: lightcoral;
+    padding: 2%;
+    border-radius: 15px;
+}
+
+/* div que controla el sistema de puntuació */
+.sistema-puntuacio-main{
+    color: white;
+}
+
+/* div que conrola l'imatge */
+.imatge-contingut img{
+    width: 150px;
+    height: 150px;
+}
