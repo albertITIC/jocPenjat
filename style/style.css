@@ -14,7 +14,7 @@
 .main-titol{
     display: flex;
     justify-content: center;
-    background-color: lightblue;
+    background-color: rgb(199, 173, 230);
     border-radius: 15px;
 }
 
@@ -24,15 +24,29 @@
     background-color: lightcoral;
     padding: 2%;
     border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 /* div que controla el sistema de puntuació */
 .sistema-puntuacio-main{
     color: white;
+    border: 3px black;
+    background-color: magenta;
+    border-radius: 9%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* div que conrola l'imatge */
 .imatge-contingut img{
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
+}
+
+.footer{
+    color: green;
 }
