@@ -1,16 +1,25 @@
-//OBJECTES ==> Definim tots els objectes. obj = const
+//OBJECTES
 const inpuObj = document.getElementById("paraulaSecreta");
 const inpuButton = document.getElementById("comencarPartida");
 const imgObj = document.getElementById("imatge");
+const main_titol_obj = document.getElementById("main-titol")
 const paraulaActualObj = document.getElementById("paraula-actual");
-const colorBotoObj = document.getElementById("")
+const colorBotoObj = document.getElementById("");
+const ptsActualsObj = document.getElementById("ptsActuals");
+const tPartidesObj = document.getElementById("tPartides");
+const pGuanyadesObj = document.getElementById("pGuanyades");
+const partMesPuntsObj = document.getElementById("partMesPunts");
+
 
 //variables globals
 let paraulaIntroduida;
 let paraulaSecreta;
 let contLletraFallada = 0;      
-let paraulaActual= [];          //Array buit per fer de manera dinamica, per obtenir tantes lletres com la paraula introduida sigui
-
+let paraulaActual= [];          
+let puntuacioActual = 0;        
+let ratxa = 0;                  
+let restarPunts = 1;            
+let cAcerts = 0;        
 
 function comencaPartida(){ // falta la validació per que ens introdueixi una cadena, no podem fer que l'usuari introdueixi un número
     paraulaSecreta = inpuObj.value;
@@ -29,7 +38,7 @@ function comencaPartida(){ // falta la validació per que ens introdueixi una ca
                 habilitarBoto() // Habilitem tots els botons
                 paraulaActualInicial() //Executem la funció paraulaActualInicial que ens transforma les lletres per '-'
 
-                //Habilit
+                tPartidesObj.textContent = 1;
 
             } else{
                 alert("La paraula ha de contenir més de 3 caràcters");
@@ -77,21 +86,28 @@ function jugarLletra(obj) {
             // Si la lletra jugada coincide con alguna en la paraula secreta
             paraulaActual[i] = lletraJugada;            
             lletraEncertada = true;
+            cAcerts += 1;
             
             // Modificar les propietats del botó
-            obj.style.color = "green";           // Canviar el color del text a verd
-            obj.style.borderColor = "green";     // Canviar el el contorn a verd
+            obj.style.color = "green";           
+            obj.style.borderColor = "green";
 
         }
     }
 
-    // Si acertem alguna letra, actualiza la paraula per pantalla
+
     if (lletraEncertada) {
-        paraulaActualObj.textContent = paraulaActual.join(' '); // Mostrar la palabra actual con las letras acertadas
+        ratxa+=1
+        puntuacioActual = cAcerts * ratxa;
+        ptsActualsObj.textContent = puntuacioActual;
+        paraulaActualObj.textContent = paraulaActual.join(''); 
+
         
-        // Sistema de puntuatge sumar, sumar+2...
-
-
+        if (paraulaActual.join('') === paraulaSecreta) {
+            console.log("Felicitats, has guanyat la partida!");
+            // deshabilitarBoto();
+            
+        }
     }
     else {
         // Si no acerta, incremento el número de fallos i actualitzo la foto
@@ -101,25 +117,31 @@ function jugarLletra(obj) {
         // Cambiaré les propietats del botó presionat a color a vermell
         obj.style.color = "red"; 
         obj.style.borderColor = "red"; 
-        // Si el contador arriba al seu tope (total d'imatges del penjat) s'acaba la partida
-        if (contLletraFallada == 10) {
-            document.getElementById("main-titol").style.backgroundColor="red";
 
-            setTimeout(() => {
-                alert("Has perdut, torna a introduïr una paraula nova");
+       //if per controlar que no tingui puntuació negatives
+       if(puntuacioActual > 0){
+        puntuacioActual -= 1;
+        ptsActualsObj.textContent = puntuacioActual;
+       }
+       ratxa = 0;
+    }
 
-                habilitarBoto();
-                //Reiniciar tots els botons
-                obj.style.color="red";
-                obj.style.borderColor="red";
+    // Si el contador arriba al seu tope (total d'imatges del penjat) s'acaba la partida
+    if (contLletraFallada == 10) {
+        main_titol_obj.style.backgroundColor="red";
+        //MIRAR-HO
+        setTimeout(() => {
+            alert("Has perdut, torna a introduïr una paraula nova");
 
-                inpuObj.disabled = true;
-                inpuButton.disabled = true;
+            habilitarBoto();
+            //Reiniciar tots els botons
+            obj.style.color="black";
+            obj.style.borderColor="black";
 
-            }, 1000);
+            inpuObj.disabled = false;
+            inpuButton.disabled = false;
 
-
-        }
+        }, 1000);
     }
 }
 
