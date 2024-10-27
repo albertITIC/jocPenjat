@@ -9,7 +9,7 @@
 <body>
     
     <header class="header">
-        <!-- Crear input -->
+        <!-- Crear input per la paraula que nosaltres introduïm -->
         <input id="paraulaSecreta" placeholder="Introdueix una paraula: " type="password">
         <!-- Botons -->
         <button id="mostrar" onclick="mostrarParaula()"> Mostrar </button>
@@ -18,9 +18,9 @@
 
     <main class="main">
         <!-- Títol en gran -->
-        <div class="main-titol">
-            <h1>
-                Començar partida <!-- Més endavant ha de canviar per _ _ _ _ _ -->
+        <div id="main-titol">
+            <h1 id="paraula-actual" class=p-actual>
+                Començar partida
             </h1>
         </div>
 
@@ -68,10 +68,9 @@
         <button id=boto_23 onclick="jugarLletra(this);">W</button>
         <button id=boto_24 onclick="jugarLletra(this);">Y</button>
         <button id=boto_25 onclick="jugarLletra(this);">Z</button>
-
     </footer>
 
-    <!-- Per importar el fitxer -->
+    <!-- Importar el fitxer -->
     <script src="/jocCodi.js/code.js"></script>
 
 </body>

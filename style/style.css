@@ -11,14 +11,19 @@
     border-radius: 3px;
 }
 
-.main-titol{
+#main-titol{
     display: flex;
     justify-content: center;
     background-color: rgb(199, 173, 230);
     border-radius: 15px;
 }
 
-/* div que controla la part de la puntuació + la imatge */
+.p-actual{
+    letter-spacing: 15px; /*Ens serveix per poder separar les lletres*/
+    font-size: 20px;
+}
+
+/* div que controla la part de la puntuació + la imatge (anirà canviant segons els intents que faci)*/
 .main-contingut{
     padding-top: 2%;
     background-color: lightcoral;
@@ -39,6 +44,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px solid black;
 }
 
 /* div que conrola l'imatge */
@@ -47,6 +53,20 @@
     height: 250px;
 }
 
+/* Apartat botons */
 .footer{
-    color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    width: 100%;
+    gap: 5px;
+}
+
+/* Color dels botons (inicialment els poso en vermells)*/
+.footer button{
+    background-color: greenyellow;
+    color: red;
+    border-radius: 5px;
+    border-color: red;
 }
